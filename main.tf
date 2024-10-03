@@ -4,14 +4,6 @@ resource "libvirt_pool" "kubernetes" {
   path = var.libvirt_disk_path
 }
 
-resource "libvirt_volume" "ubuntu-kubernetes" {
-  count  = length(var.nodes)
-  name   = "ubuntuqcow-${var.nodes[count.index]}"
-  pool   = libvirt_pool.kubernetes.name
-  source = var.img
-  format = "qcow2"
-}
-
 resource "libvirt_network" "kubernetes-network" {
   count  = length(var.nodes)
   name   = "${var.nodes[count.index]}-net"
@@ -21,6 +13,17 @@ resource "libvirt_network" "kubernetes-network" {
     enabled = true
   }
 
+}
+
+
+### Mover para um repo de módulo para criar VMs (Domains)
+
+resource "libvirt_volume" "ubuntu-kubernetes" {
+  count  = length(var.nodes)
+  name   = "ubuntuqcow-${var.nodes[count.index]}"
+  pool   = libvirt_pool.kubernetes.name
+  source = var.img
+  format = "qcow2"
 }
 
 data "template_file" "user_data" {
