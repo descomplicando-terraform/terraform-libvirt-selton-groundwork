@@ -1,12 +1,11 @@
 resource "libvirt_pool" "kubernetes" {
-  name = "pool-${var.nodes[0]}"
+  name = "pool-${var.pool}"
   type = "dir"
   path = var.libvirt_disk_path
 }
 
 resource "libvirt_network" "kubernetes-network" {
-  count  = length(var.nodes)
-  name   = "${var.nodes[count.index]}-net"
+  name   = "${var.pool}-net"
   mode   = "bridge"
   bridge = "br0"
   dhcp {
