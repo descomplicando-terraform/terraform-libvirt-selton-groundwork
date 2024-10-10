@@ -1,7 +1,7 @@
 output "pool" {
-  value = resource.libvirt_pool.pool.name
+  value = "${libvirt_pool.pool.name}"
 }
 
 output "network" {
-  value = resource.libvirt_network.network.name
+  value = "${libvirt_network.network.name}"
 }
