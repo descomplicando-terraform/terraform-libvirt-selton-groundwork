@@ -24,8 +24,8 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [libvirt_network.kubernetes-network](https://registry.terraform.io/providers/dmacvicar/libvirt/0.7.6/docs/resources/network) | resource |
-| [libvirt_pool.kubernetes](https://registry.terraform.io/providers/dmacvicar/libvirt/0.7.6/docs/resources/pool) | resource |
+| [libvirt_network.network](https://registry.terraform.io/providers/dmacvicar/libvirt/0.7.6/docs/resources/network) | resource |
+| [libvirt_pool.pool](https://registry.terraform.io/providers/dmacvicar/libvirt/0.7.6/docs/resources/pool) | resource |
 
 ## Inputs
 
@@ -36,5 +36,8 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_network"></a> [network](#output\_network) | n/a |
+| <a name="output_pool"></a> [pool](#output\_pool) | n/a |
 <!-- END_TF_DOCS -->
