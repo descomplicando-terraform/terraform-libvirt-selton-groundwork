@@ -5,7 +5,8 @@ resource "libvirt_pool" "pool" {
 }
 
 resource "libvirt_network" "network" {
-  name   = "${var.pool}-net"
+  count  = length(var.nodes)
+  name   = "${var.nodes[count.index]}-net"
   mode   = "bridge"
   bridge = "br0"
   dhcp {
