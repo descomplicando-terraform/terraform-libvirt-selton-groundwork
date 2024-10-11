@@ -10,3 +10,8 @@ variable "libvirt_disk_path" {
   description = "Path to libvirt the pool"
 }
 
+variable "nodes" {
+  type        = list(any)
+  default     = ["edge01", "edge02"]
+  description = "List with the names of each node that will be created"
+}

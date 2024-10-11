@@ -4,6 +4,6 @@ output "pool" {
 }
 
 output "network" {
-  value = libvirt_network.network.name
+  value = libvirt_network.network[*].name
   description = "Name of the network created"
 }
